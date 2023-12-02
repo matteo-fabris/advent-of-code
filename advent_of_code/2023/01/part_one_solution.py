@@ -7,10 +7,10 @@ if __name__ == '__main__':
         # Remove all letters
         digits_only = re.sub(r'[a-zA-Z]*', '', f.read())
 
-        # For every line we keep first
-        # and last digit and add them to the sum
-        for digits in digits_only.split('\n'):
-            if len(digits) > 0:
-                result += int(digits[0]+digits[-1])
+    # For every line we keep first
+    # and last digit and add them to the sum
+    for digits in digits_only.split('\n'):
+        if len(digits) > 0:
+            result += int(digits[0]+digits[-1])
 
     print(result)

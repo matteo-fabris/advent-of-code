@@ -39,19 +39,22 @@ replacement_dict = {
 if __name__ == '__main__':
 
     result = 0
+
     with open('input.txt', 'r') as f:
-        # We need to replace the strings multiple times
-        # because of overlapping strings.
-        # E.g. oneight -> o1eight -> o1e8t
-        replaced_file_content = multiple_replace_recursive(f.read(), replacement_dict)
+        file_content = f.read()
 
-        # Remove all letters
-        digits_only = re.sub(r'[a-zA-Z]*', '', replaced_file_content)
+    # We need to replace the strings multiple times
+    # because of overlapping strings.
+    # E.g. oneight -> o1eight -> o1e8t
+    replaced_file_content = multiple_replace_recursive(f.read(), replacement_dict)
 
-        # For every line we keep first
-        # and last digit
-        for digits in digits_only.split('\n'):
-            if len(digits) > 0:
-                result += int(digits[0] + digits[-1])
+    # Remove all letters
+    digits_only = re.sub(r'[a-zA-Z]*', '', replaced_file_content)
+
+    # For every line we keep first
+    # and last digit
+    for digits in digits_only.split('\n'):
+        if len(digits) > 0:
+            result += int(digits[0] + digits[-1])
 
     print(result)

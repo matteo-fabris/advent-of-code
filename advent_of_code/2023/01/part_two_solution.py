@@ -49,7 +49,7 @@ if __name__ == '__main__':
         digits_only = re.sub(r'[a-zA-Z]*', '', replaced_file_content)
 
         # For every line we keep first
-        # and last digit and add them to the sum
+        # and last digit
         for digits in digits_only.split('\n'):
             if len(digits) > 0:
                 result += int(digits[0] + digits[-1])
